@@ -2,9 +2,8 @@
 
 ![Example](assets/GNSS.jpg)
 
-Demo: https://www.windy.com/uploader
-
-This plugin was forked from [windycom/leaflet-kml](https://github.com/windycom/leaflet-kml).
+This plugin was forked from [windycom/leaflet-kml](https://github.com/windycom/leaflet-kml).  
+It is hardcoded to handle the specific KMLs.    
 
 
 ## Licence
