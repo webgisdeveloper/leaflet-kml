@@ -83,7 +83,7 @@ L.Util.extend(L.KML, {
 	parseStyle: function (xml, kmlOptions) {
 		var style = {}, poptions = {}, ioptions = {}, el, id;
 
-		var attributes = {color: true, width: true, Icon: true, href: true, hotSpot: true, scale: true};
+		var attributes = {color: true, width: true, Icon: true, href: true, hotSpot: true, scale: true, fill: true};
 
 		function _parse (xml) {
 			var options = {};
@@ -109,7 +109,9 @@ L.Util.extend(L.KML, {
 					} else if (key === 'href') {
 						options.href = value;
 					} else if (key === 'scale' ) {
-						options.scale = value;
+						options.scale = parseFloat(value);
+					} else if (key === 'fill' ) {
+						options.polyfill = parseInt(value);
 					}
 				}
 			}
@@ -119,9 +121,10 @@ L.Util.extend(L.KML, {
 		el = xml.getElementsByTagName('LineStyle');
 		if (el && el[0]) { style = _parse(el[0]); }
 		el = xml.getElementsByTagName('PolyStyle');
-		if (el && el[0]) { poptions = _parse(el[0]); }
-		if (poptions.color) { style.fillColor = poptions.color; }
+		if (el && el[0]) { poptions = _parse(el[0]);}
+		if (poptions.color) { style.fillColor = poptions.color;}
 		if (poptions.opacity) { style.fillOpacity = poptions.opacity; }
+		if (poptions.polyfill === 0) { style.fill = false;} else { style.fill = true};
 		el = xml.getElementsByTagName('IconStyle');
 		if (el && el[0]) { ioptions = _parse(el[0]); }
 		if (ioptions.href) {
@@ -326,9 +329,11 @@ L.Util.extend(L.KML, {
 		if (!polys.length) {
 			return;
 		}
-		if (options.fillColor) {
-			options.fill = true;
-		}
+	
+		//if (options.fillColor) {
+		//	options.fill = true;
+		//}
+		
 		if (polys.length === 1) {
 			return new L.Polygon(polys.concat(inner), options);
 		}
