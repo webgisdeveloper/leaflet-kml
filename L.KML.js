@@ -418,8 +418,16 @@ L.KMLIcon = L.Icon.extend({
 		iconAnchor: [16, 32],
 	},
 	_setIconStyles: function (img, name) {
-		//console.log(this.options.iconAnchor);
-		//this.options.iconAnchor=[8,16];
+		//console.log(this.options);
+		// color: "#78FF78"
+		// iconUrl: "https://maps.google.com/mapfiles/kml/paddle/wht-blank.png"
+		// green icon: "https://maps.google.com/mapfiles/kml/paddle/grn-blank.png"
+		if (this.options.color === '#78FF78') {
+			this.options.iconUrl = "https://maps.google.com/mapfiles/kml/paddle/grn-blank.png";
+		}
+		//console.log(img);
+		img.src = this.options.iconUrl;
+
 		var scale = this.options.scale;
 		if (scale > 0.0) {
 			this.options.iconSize = [Math.floor(32*scale),Math.floor(32*scale)];
