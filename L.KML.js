@@ -410,7 +410,8 @@ L.Util.extend(L.KML, {
 L.KMLIcon = L.Icon.extend({
 	options: {
 		iconSize: [32, 32],
-		iconAnchor: [16, 16],
+		// change anchor position
+		iconAnchor: [16, 32],
 	},
 	_setIconStyles: function (img, name) {
 		L.Icon.prototype._setIconStyles.apply(this, [img, name]);
