@@ -258,7 +258,7 @@ L.Util.extend(L.KML, {
     var el, i, j, name, descr = '';
     el = place.getElementsByTagName('name');
     if (el.length && el[0].childNodes.length) {
-      name = el[0].childNodes[0].nodeValue;
+	  name = el[0].childNodes[0].nodeValue;
     }
     el = place.getElementsByTagName('description');
     for (i = 0; i < el.length; i++) {
@@ -266,10 +266,10 @@ L.Util.extend(L.KML, {
         descr = descr + el[i].childNodes[j].nodeValue;
       }
     }
-
+	//load no name description
     if (name) {
       layer.bindPopup('<h2>' + name + '</h2>' + descr, { className: 'kml-popup'});
-    }
+    } else {layer.bindPopup(descr, { className: 'kml-popup'});}
   },
 
 	parseCoords: function (xml) {
