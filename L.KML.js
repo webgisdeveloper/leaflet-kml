@@ -83,7 +83,7 @@ L.Util.extend(L.KML, {
 	parseStyle: function (xml, kmlOptions) {
 		var style = {}, poptions = {}, ioptions = {}, el, id;
 
-		var attributes = {color: true, width: true, Icon: true, href: true, hotSpot: true};
+		var attributes = {color: true, width: true, Icon: true, href: true, hotSpot: true, scale: true};
 
 		function _parse (xml) {
 			var options = {};
@@ -108,6 +108,8 @@ L.Util.extend(L.KML, {
 						if (ioptions.href) { options.href = ioptions.href; }
 					} else if (key === 'href') {
 						options.href = value;
+					} else if (key === 'scale' ) {
+						options.scale = value;
 					}
 				}
 			}
@@ -127,7 +129,9 @@ L.Util.extend(L.KML, {
 				iconUrl: ioptions.href,
 				shadowUrl: null,
 				anchorRef: {x: ioptions.x, y: ioptions.y},
-				anchorType:	{x: ioptions.xunits, y: ioptions.yunits}
+				anchorType:	{x: ioptions.xunits, y: ioptions.yunits},
+				scale: ioptions.scale,
+				color: ioptions.color,
 			};
 
 			if (typeof kmlOptions === "object" && typeof kmlOptions.iconOptions === "object") {
@@ -414,6 +418,13 @@ L.KMLIcon = L.Icon.extend({
 		iconAnchor: [16, 32],
 	},
 	_setIconStyles: function (img, name) {
+		//console.log(this.options.iconAnchor);
+		//this.options.iconAnchor=[8,16];
+		var scale = this.options.scale;
+		if (scale > 0.0) {
+			this.options.iconSize = [Math.floor(32*scale),Math.floor(32*scale)];
+			this.options.iconAnchor = [Math.floor(16*scale),Math.floor(32*scale)];
+		}
 		L.Icon.prototype._setIconStyles.apply(this, [img, name]);
 	},
 	_createImg: function (src, el) {
@@ -426,7 +437,6 @@ L.KMLIcon = L.Icon.extend({
 		var options = this.options;
 		var width = options.iconSize[0];
 		var height = options.iconSize[1];
-
 		this.options.popupAnchor = [0,(-0.83*height)];
 		if (options.anchorType.x === 'fraction')
 			img.style.marginLeft = (-options.anchorRef.x * width) + 'px';
