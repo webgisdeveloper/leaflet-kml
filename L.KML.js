@@ -53,6 +53,7 @@ L.Util.extend(L.KML, {
 			l = this.parseGroundOverlay(el[k]);
 			if (l) { layers.push(l); }
 		}
+		
 		return layers;
 	},
 
@@ -119,7 +120,7 @@ L.Util.extend(L.KML, {
 		}
 
 		el = xml.getElementsByTagName('LineStyle');
-		if (el && el[0]) { style = _parse(el[0]); }
+		if (el && el[0]) { style = _parse(el[0]);}
 		el = xml.getElementsByTagName('PolyStyle');
 		if (el && el[0]) { poptions = _parse(el[0]);}
 		if (poptions.color) { style.fillColor = poptions.color;}
@@ -287,6 +288,7 @@ L.Util.extend(L.KML, {
 	parseLineString: function (line, xml, options) {
 		var coords = this.parseCoords(line);
 		if (!coords.length) { return; }
+		options.fill = false;
 		return new L.Polyline(coords, options);
 	},
 

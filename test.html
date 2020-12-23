@@ -24,7 +24,7 @@
             }
 
             // Make basemap
-            const map = new L.Map('map', { center: new L.LatLng(58.4, 43.0), zoom: 11 });
+            const map = new L.Map('map', { center: new L.LatLng(33.0, -116), zoom: 9 });
             const osm = new L.TileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png');
 
             map.addLayer(osm);
@@ -35,6 +35,11 @@
             // min marker size and error 
             addKML("assets/velocity_vertical_min.kml");
             addKML("assets/velocity_horizontal_min.kml");
+            //addKML("assets/edges3V.kml");
+            // polyline issue
+            addKML("assets/Vk2.kml");
+            addKML("assets/Vk3.kml");
+
 
 
         </script>
