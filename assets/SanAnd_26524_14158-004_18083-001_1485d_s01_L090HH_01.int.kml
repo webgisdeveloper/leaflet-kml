@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+
+  <Document><name>UAVSAR SanAnd_26524_14158-004_18083-001_1485d_s01_L090HH_01.int.kml</name>
+    <description>
+UAVSAR RPI Interferogram of San Andreas Fault - LA Basin, CA
+
+Acquisition dates: 23-Oct-2014, 16-Nov-2018 UTC
+Approximate heading: 265 degree(s)
+Polarization: HH 
+RPI KML/KMZ version number: 2.1
+
+Product name: SanAnd_26524_14158-004_18083-001_1485d_s01_L090HH_01.int.kml
+
+Precision data website: http://uavsar.jpl.nasa.gov/cgi-bin/product.pl?jobName=SanAnd_26524_14158-004_18083-001_1485d_s01_L090_01
+UAVSAR website: http://uavsar.jpl.nasa.gov
+    </description>
+
+
+    <Style id="UAVSAR_RPI">
+
+      <BalloonStyle>
+        <text>$[description]</text>
+      </BalloonStyle>
+    </Style>
+
+    <TimeSpan>
+      <begin>2014-10-23T20:36:25Z</begin>
+      <end>2018-11-16T01:42:01Z</end>
+    </TimeSpan>
+    
+    <Placemark>
+      <name>UAVSAR SanAnd_26524_14158-004_18083-001_1485d_s01_L090HH_01.int.kml</name>
+      <description>
+        <![CDATA[
+          <b>UAVSAR RPI Interferogram of San Andreas Fault - LA Basin, CA</b><br><br>
+
+          Acquisition dates: <font color=117a90>23-Oct-2014, 16-Nov-2018 UTC</font><br>
+          Approximate heading: <font color=117a90>265 degree(s)</font><br>
+          Polarization: <font color=117a90>HH</font><br>
+          RPI KML/KMZ version number: <font color=117a90>2.1</font><br><br>
+
+          Product name: <font color=117a90>SanAnd_26524_14158-004_18083-001_1485d_s01_L090HH_01.int.kml</font><br><br>
+
+          <a href="http://uavsar.jpl.nasa.gov/cgi-bin/product.pl?jobName=SanAnd_26524_14158-004_18083-001_1485d_s01_L090_01" >Download Precision Data</a><br>
+          <a href="http://uavsar.jpl.nasa.gov/">UAVSAR website</a>
+        ]]>
+      </description>
+
+      <!-- starting location of processed flight line at near range -->
+      <Point><coordinates>-116.73046472,34.28639894,0</coordinates></Point>
+    </Placemark>
+
+    <!-- low resolution image thumbnail -->     
+    <GroundOverlay>
+      <name>Low resolution image thumbnail</name>
+      <Icon>
+<href>http://gf2.ucs.indiana.edu/kmz/uid1538/SanAnd_26524_14158-004_18083-001_1485d_s01_L090HH_01.int.png</href>
+        <viewBoundScale>0.75</viewBoundScale>
+      </Icon>
+
+      <LatLonBox>
+        <north>34.3539981000</north>
+        <south>33.8716817400</south>
+        <east>-116.7098638200</east>
+        <west>-119.0982771000</west>
+      </LatLonBox>
+    </GroundOverlay>
+  
+
+    <!-- image legend -->     
+    <ScreenOverlay>
+      <name>Legend</name>
+      <visibility>1</visibility>
+      <Icon>
+<href>http://downloaduav.jpl.nasa.gov/kml/RPI/SanAnd_26524_14158-004_18083-001_1485d_s01_L090HH_01.legendInt.png</href>
+      </Icon>
+      <overlayXY x="0" y="0" xunits="fraction" yunits="fraction"/>
+      <screenXY x="0" y="40" xunits="pixels" yunits="pixels"/>
+      <rotationXY x="0" y="0" xunits="fraction" yunits="fraction"/>
+      <size x="0" y="0" xunits="fraction" yunits="fraction"/>
+    </ScreenOverlay>
+
+  </Document>
+</kml>
+   

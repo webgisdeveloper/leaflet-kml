@@ -45,7 +45,7 @@ L.Util.extend(L.KML, {
 		el = xml.getElementsByTagName('Placemark');
 		for (var j = 0; j < el.length; j++) {
 			if (!this._check_folder(el[j])) { continue; }
-			if ('ignorePlacemark' in kmlOptions) { continue; }
+			if (typeof kmlOptions !== 'undefined' && 'ignorePlacemark' in kmlOptions) { continue; }
 			l = this.parsePlacemark(el[j], xml, style);
 			if (l) { layers.push(l); }
 		}
