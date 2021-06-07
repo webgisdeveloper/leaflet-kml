@@ -7,14 +7,14 @@
     <body>
         <div style="width: 100vw; height: 100vh" id="map"></div>
         <script type="text/javascript">
-            function addKML(kmlfile) {
+            function addKML(kmlfile,options) {
                 fetch(kmlfile)
                     .then(res => res.text())
                     .then(kmltext => {
                         // Create new kml overlay
                         const parser = new DOMParser();
                         const kml = parser.parseFromString(kmltext, 'text/xml');
-                        const track = new L.KML(kml);
+                        const track = new L.KML(kml,options);
                         map.addLayer(track);
 
                         // Adjust map to show the kml
@@ -31,15 +31,16 @@
 
             // Load kml file
             addKML("assets/velocity_vertical.kml");
-            addKML("assets/velocity_horizontal.kml");
-            // min marker size and error 
-            addKML("assets/velocity_vertical_min.kml");
-            addKML("assets/velocity_horizontal_min.kml");
-            //addKML("assets/edges3V.kml");
-            // polyline issue
-            addKML("assets/Vk2.kml");
-            addKML("assets/Vk3.kml");
+            // addKML("assets/velocity_horizontal.kml");
+            // // min marker size and error 
+            // addKML("assets/velocity_vertical_min.kml");
+            // addKML("assets/velocity_horizontal_min.kml");
+            // //addKML("assets/edges3V.kml");
+            // // polyline issue
+            // addKML("assets/Vk2.kml");
+            // addKML("assets/Vk3.kml");
             addKML("assets/ucerf3_black.kml");
+            addKML("http://gf2.ucs.indiana.edu/kmz/uid1538/SanAnd_26524_14158-004_18083-001_1485d_s01_L090HH_01.int.kml",{"ignorePlacemark":true});
 
 
 
